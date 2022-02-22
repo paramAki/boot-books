@@ -1,0 +1,92 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>All Book</title>
+
+        <!-- Bootstrap 核心 CSS 文件 -->
+        <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            let books = [[${list}]];
+            let str = "";
+            console.log(books);
+            $(window).load(function () {
+                for (let i = 0; i < books.length; i++) {
+                    str += "<tr><td>" +
+                        books[i].bookID + "</td><td>" +
+                        books[i].bookName + "</td><td>" +
+                        books[i].bookCounts + "</td><td>" +
+                        books[i].detail + "</td><td>" +
+                        '<a class="btn btn-primary" href="/book/toUpdate?bookID=' + books[i].bookID + '">修改</a>' +
+                        '&nbsp; | &nbsp;' +
+                        '<a class="btn btn-danger" th:href="@{/book/deleteBook(bookID=' + books[i].bookID + ')}">删除</a>' +
+                        '</td></tr>';
+                }
+                //追加到div中
+                $(".pp").append(str);
+            })
+            /*]]>*/
+        </script>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <div class="clearfix">
+                <div class="col-md-12 column">
+                    <div class="page-header col-md-11 column">
+                        <h1>
+                            <small>书籍列表 —————— 显示所有书籍</small>
+                        </h1>
+                    </div>
+                    <div class="col-md-1 column">
+                        <h1>
+                            <a class="btn btn-primary" th:href="@{/user/logout}">登出</a>
+                        </h1>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4 column">
+                        <a class="btn btn-primary" th:href="@{/book/toAddBook}">新增书籍</a>
+                        <a class="btn btn-primary" th:href="@{/book/allBook}">显示所有书籍</a>
+                    </div>
+                    <div class="col-md-4 column"></div>
+                    <div class="col-md-4 column">
+                        <form th:action="@{/book/queryBook}" method="post" class="form-inline">
+                            <input type="text" name="queryBookName" class="form-control" placeholder="请输入查询的名称"
+                                   required>
+                            <input type="submit" value="查询" class="btn btn-primary">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="clearfix">
+                <div class="col-md-12 column">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>书籍编号</th>
+                                <th>名称</th>
+                                <th>数量</th>
+                                <th>描述</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody class="pp">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-primary" th:href="@{/book/toUpdate(bookID=1)}">修改</a>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="https://paramaki-1258623568.cos.ap-guangzhou.myqcloud.com/boot/books/css/style.css"/>
+    </head>
+    <body>
+        <div class="box">
+            <h1>登录</h1>
+            <form th:action="@{/user/login}" method="post">
+                <label th:text="${errorMsg}" style="color: red"></label>
+                <div class="inputBox">
+                    <input type="text" name="username" required="">
+                    <label>请输入账号</label>
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="password" required="">
+                    <label>请输入密码</label>
+                </div>
+                <input type="submit" value="登 录 账 户">
+                <h3></h3>
+                <a th:action="@{/user/toRegister}"
+                   style="float: right; text-decoration: none; color: #0e90d2">去注册</a>
+            </form>
+        </div>
+    </body>
+</html>

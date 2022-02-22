@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.param.bootbooks.mapper.UserMapper">
+    <insert id="addUser" parameterType="com.param.bootbooks.pojo.User">
+        insert into ssmbuild.users(username, password)
+        values (#{username}, #{password});
+    </insert>
+
+    <delete id="deleteUserById" parameterType="int">
+        delete
+        from ssmbuild.users
+        where userID = #{userID};
+    </delete>
+
+    <update id="updateUser" parameterType="com.param.bootbooks.pojo.User">
+        update ssmbuild.users
+        set username =#{username},
+            password=#{password}
+        where userID = #{userID};
+    </update>
+
+    <select id="queryUserById" resultType="com.param.bootbooks.pojo.User">
+        select *
+        from ssmbuild.users
+        where userID = #{userID};
+    </select>
+
+    <select id="queryUserByName" resultType="com.param.bootbooks.pojo.User">
+        select *
+        from ssmbuild.users
+        where users.username like concat('%', #{username}, '%');
+    </select>
+
+    <select id="queryAllUser" resultType="com.param.bootbooks.pojo.User">
+        select *
+        from ssmbuild.users;
+    </select>
+
+</mapper>

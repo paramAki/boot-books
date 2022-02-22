@@ -19,7 +19,7 @@ public interface UserService {
     int updateUser(User user);
 
     // 查找
-    User queryUserById(int id);
+    User queryUserById(String id);
 
     // 查找
     User queryUserByName(String name);

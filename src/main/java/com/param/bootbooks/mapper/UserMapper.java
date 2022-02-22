@@ -19,7 +19,7 @@ public interface UserMapper {
     int updateUser(User user);
 
     // 查找
-    User queryUserById(@Param("userID") int id);
+    User queryUserById(@Param("userID") String id);
 
     // 查找
     User queryUserByName(@Param("username") String name);

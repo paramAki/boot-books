@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * @author zhoujingyu（976944083@qq.com）
+ */
 @Controller
 @RequestMapping("/user")
 public class LoginController {
 
-    // controller层调service层
     @Autowired
-//    @Qualifier("UserServiceImpl")
     private UserService userService;
 
     @RequestMapping("/toLogin")
@@ -30,7 +31,13 @@ public class LoginController {
     public String login(User user, HttpSession session, Model model) {
         System.out.println(user);
 
-        User getUser = userService.queryUserByName(user.getUsername());
+        User getUser = userService.queryUserById(user.getUserID());
+
+        // 判断账号状态
+        if(getUser.getStatus()==0){
+            model.addAttribute("errorMsg", "账号已被锁定！");
+            return "login";
+        }
 
         // 通过验证存入session
         if (user.equals(getUser)) {
@@ -40,14 +47,6 @@ public class LoginController {
         }
         model.addAttribute("errorMsg", "账户或者密码错误！");
         return "login";
-//        if (!StringUtils.isEmpty(user.getUsername()) && !user.getPassword().isEmpty()) {
-//            session.setAttribute("loginUser", user);
-//
-//            return "redirect:/book/allBook";
-//        } else {
-//            model.addAttribute("msg", "账号或者密码错误");
-//            return "login";
-//        }
     }
 
     @RequestMapping("/main")
@@ -68,9 +67,16 @@ public class LoginController {
     }
 
     @RequestMapping("/register")
-    public String register(User user) {
-        userService.addUser(user);
+    public String register(User user,Model model) {
 
+        // 先判断ID有没有重复
+        if(userService.queryUserById(user.getUserID())!=null){
+            model.addAttribute("errorMsg", "该ID已被注册！");
+            return "register";
+        }
+
+        userService.addUser(user);
+        model.addAttribute("errorMsg",null);
         return "redirect:login";
     }
 

@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.param.bootbooks.mapper.UserMapper">
     <insert id="addUser" parameterType="com.param.bootbooks.pojo.User">
-        insert into ssmbuild.users(username, password)
-        values (#{username}, #{password});
+        insert into ssmbuild.users(userID, username, password, userEmail)
+        values (#{userID}, #{username}, #{password}, #{userEmail});
     </insert>
 
     <delete id="deleteUserById" parameterType="int">
@@ -17,7 +17,8 @@
     <update id="updateUser" parameterType="com.param.bootbooks.pojo.User">
         update ssmbuild.users
         set username =#{username},
-            password=#{password}
+            password=#{password},
+            userEmail=#{userEmail}
         where userID = #{userID};
     </update>
 

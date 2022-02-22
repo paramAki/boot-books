@@ -8,8 +8,12 @@ com/param/bootbooks/service/BookService.class
 com/param/bootbooks/service/UserService.class
 com/param/bootbooks/BootBooksApplication.class
 com/param/bootbooks/intecerptor/LoginInterceptor.class
+com/param/bootbooks/service/CityService.class
 com/param/bootbooks/pojo/Book.class
+com/param/bootbooks/mapper/CityMapper.class
 com/param/bootbooks/service/UserServiceImpl.class
+com/param/bootbooks/pojo/City.class
+com/param/bootbooks/service/CityServiceImpl.class
 com/param/bootbooks/controller/LoginController.class
 com/param/bootbooks/controller/BookController.class
 com/param/bootbooks/pojo/User.class

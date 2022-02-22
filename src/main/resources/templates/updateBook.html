@@ -21,8 +21,8 @@
             <div class="col-md-12 column">
                 <div class="col-md-4 column"></div>
                 <div class="col-md-4 column">
-                    <form th:action="@{/book/update}" method="post">
-                        <input type="hidden" name="bookID" class="form-control" value="${QBook.bookID}">
+                    <form th:action="@{/book/updateBook}" method="post">
+                        <input type="hidden" name="bookID" class="form-control" th:value="${QBook.bookID}">
                         <div class="form-group">
                             <label>书籍名称</label>
                             <input type="text" name="bookName" class="form-control" th:value="${QBook.bookName}" required>

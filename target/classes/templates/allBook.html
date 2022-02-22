@@ -23,12 +23,14 @@
                         books[i].detail + "</td><td>" +
                         '<a class="btn btn-primary" href="/book/toUpdate?bookID=' + books[i].bookID + '">修改</a>' +
                         '&nbsp; | &nbsp;' +
-                        '<a class="btn btn-danger" th:href="@{/book/deleteBook(bookID=' + books[i].bookID + ')}">删除</a>' +
+                        // '<a class="btn btn-danger" href="/book/deleteBook?bookID=' + books[i].bookID + '">删除</a>' +
+                        '<a class="btn btn-danger" data-toggle="modal" data-target="#myModal"'+ '>删除</a>' +
                         '</td></tr>';
                 }
                 //追加到div中
                 $(".pp").append(str);
             })
+
             /*]]>*/
         </script>
     </head>
@@ -87,6 +89,23 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-primary" th:href="@{/book/toUpdate(bookID=1)}">修改</a>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">警告</h4><!--弹窗的标题-->
+                    </div>
+                    <div class="modal-body"><!--弹窗的内容-->
+                        <p>无权限删除记录！</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </body>
 </html>

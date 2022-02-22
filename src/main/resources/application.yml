@@ -8,12 +8,12 @@ spring:
     druid:
       aop-patterns: com.param.bootbooks.*
       filters: stat,wall,slf4j
-
       stat-view-servlet:
         enabled: true
         login-username: admin
         login-password: 123456
         reset-enable: false;
+        allow: 61.144.96.126,127.0.0.1
       web-stat-filter:
         enabled: true
         url-pattern: /*

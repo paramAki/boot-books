@@ -17,6 +17,10 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
 
+        if (request.getRequestURI().contains("blog")) {
+            return true;
+        }
+
         if (request.getRequestURI().contains("ogin")) {
             return true;
         }

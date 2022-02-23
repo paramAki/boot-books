@@ -22,8 +22,8 @@ public class BookController {
 
     /**
      * 查询所有数据，并返回到一个展示页面
-     * @param model
-     * @return
+     * @param model model
+     * @return allBook.html
      */
     @RequestMapping("/allBook")
     public String getAllBook(Model model) {
@@ -31,12 +31,12 @@ public class BookController {
         log.info(list.toString());
         model.addAttribute("list", list);
 
-        return "allBook";
+        return "book/allBook";
     }
 
     @RequestMapping("/toAddBook")
     public String toAddBookPage() {
-        return "addBook";
+        return "book/addBook";
     }
 
     @RequestMapping("/addBook")
@@ -53,7 +53,7 @@ public class BookController {
         Book book = bookService.queryBookById(bookID);
         model.addAttribute("QBook", book);
 
-        return "updateBook";
+        return "book/updateBook";
     }
 
     @RequestMapping("/updateBook")
@@ -84,6 +84,6 @@ public class BookController {
             model.addAttribute("err","抱歉，没有查找到");
         }
 
-        return "allBook";
+        return "book/allBook";
     }
 }

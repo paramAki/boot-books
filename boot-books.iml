@@ -113,5 +113,7 @@
     <orderEntry type="library" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:2.2.2" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis:mybatis-spring:2.0.7" level="project" />
     <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="font-awesome" level="application" />
+    <orderEntry type="library" name="clean-blog" level="application" />
   </component>
 </module>

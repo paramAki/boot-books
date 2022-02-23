@@ -5,12 +5,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * @author zhoujingyu（976944083@qq.com）
+ */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/login","/register" ,"/", "/css/**", "/fonts/**", "/images/**", "/js/**");
+                .excludePathPatterns("/login", "/register", "/", "/css/**", "/fonts/**", "/images/**", "/js/**", "/static/**");
     }
 }

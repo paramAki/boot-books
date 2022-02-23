@@ -24,7 +24,7 @@ public class LoginController {
 
     @RequestMapping("/toLogin")
     public String toLogin() {
-        return "login";
+        return "book/login";
     }
 
     @RequestMapping("/login")
@@ -36,7 +36,7 @@ public class LoginController {
         // 判断账号状态
         if(getUser.getStatus()==0){
             model.addAttribute("errorMsg", "账号已被锁定！");
-            return "login";
+            return "book/login";
         }
 
         // 通过验证存入session
@@ -46,12 +46,12 @@ public class LoginController {
             return "redirect:/book/allBook";
         }
         model.addAttribute("errorMsg", "账户或者密码错误！");
-        return "login";
+        return "book/login";
     }
 
     @RequestMapping("/main")
     public String main() {
-        return "allBook";
+        return "book/allBook";
     }
 
     @RequestMapping("/logout")
@@ -59,12 +59,12 @@ public class LoginController {
         System.out.println("====================================");
         session.removeAttribute("loginUser");
         model.addAttribute("errorMsg", "请重新登录");
-        return "login";
+        return "book/login";
     }
 
     @RequestMapping("/toRegister")
     public String toRegister() {
-        return "register";
+        return "book/register";
     }
 
     @RequestMapping("/register")
@@ -73,7 +73,7 @@ public class LoginController {
         // 先判断ID有没有重复
         if(userService.queryUserById(user.getUserID())!=null){
             model.addAttribute("errorMsg", "该ID已被注册！");
-            return "register";
+            return "book/register";
         }
 
         userService.addUser(user);

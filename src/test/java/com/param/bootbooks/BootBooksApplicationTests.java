@@ -1,5 +1,7 @@
 package com.param.bootbooks;
 
+import com.param.bootbooks.mapper.BookMapper;
+import com.param.bootbooks.pojo.Book;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +15,12 @@ import javax.sql.DataSource;
 class BootBooksApplicationTests {
     @Autowired
     JdbcTemplate jdbcTemplate;
+
     @Autowired
     DataSource dataSource;
+
+    @Autowired
+    BookMapper bookMapper;
 
     @Test
     void contextLoads() {

@@ -1,11 +1,7 @@
 package com.param.bootbooks.mapper;
 
-import com.param.bootbooks.pojo.Book;
 import com.param.bootbooks.pojo.City;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -15,17 +11,48 @@ import java.util.List;
 @Mapper
 public interface CityMapper {
 
+    /**
+     * 通过ID查找城市
+     * @param id city id
+     * @return city
+     */
     @Select("select * from city where id=#{id}")
     City queryCityById(@Param("cityId") Long id);
 
+    /**
+     * 插入城市记录
+     * @param city city
+     * @return int值，0为失败，1为成功
+     */
+    @Insert("insert into ssmbuild.city(name, state, country) values (#{name}, #{state}, #{country})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     int addCity(City city);
 
-    @Delete("delete * from city where id=#{id}")
+    /**
+     * 通过ID删除city记录
+     * @param id city id
+     * @return int值，0为失败，1为成功
+     */
+    @Delete("delete from city where id=#{id}")
     int deleteCityById(@Param("cityId") Long id);
 
-    int updateCity(City book);
+    /**
+     * 修改city记录
+     * @param city city
+     * @return int值，0为失败，1为成功
+     */
+    int updateCity(City city);
 
+    /**
+     * 通过city name查找city
+     * @param name city name
+     * @return 模糊查询到的city集合
+     */
     List<City> queryCityByName(@Param("cityName") String name);
 
+    /**
+     * 查找所有city记录
+     * @return city集合
+     */
     List<City> queryAllCity();
 }

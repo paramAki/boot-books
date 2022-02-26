@@ -35,7 +35,7 @@ public class LoginController {
 
         // 判断账号状态
         if(getUser.getStatus()==0){
-            model.addAttribute("errorMsg", "账号已被锁定！");
+            model.addAttribute("errorMsg", "账号已被锁定，请联系作者！");
             return "book/login";
         }
 

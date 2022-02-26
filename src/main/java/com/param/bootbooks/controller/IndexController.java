@@ -39,9 +39,10 @@ public class IndexController {
     }
 
     @ResponseBody
-    @RequestMapping("/city")
-    public City queryCityById(@RequestParam("id") Long id){
+    @RequestMapping("/addCity")
+    public City queryCityById(City city){
+        cityService.addCity(city);
 
-        return cityService.queryCityById(id);
+        return city;
     }
 }

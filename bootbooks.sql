@@ -11,7 +11,7 @@
  Target Server Version : 80022
  File Encoding         : 65001
 
- Date: 26/02/2022 20:50:00
+ Date: 27/02/2022 11:22:18
 */
 
 SET NAMES utf8mb4;
@@ -35,11 +35,23 @@ CREATE TABLE `books` (
 -- ----------------------------
 DROP TABLE IF EXISTS `city`;
 CREATE TABLE `city` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) DEFAULT NULL,
-  `state` varchar(30) DEFAULT NULL,
-  `country` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `CityID` int NOT NULL AUTO_INCREMENT,
+  `CityName` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `State` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `Country` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  PRIMARY KEY (`CityID`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Table structure for library
+-- ----------------------------
+DROP TABLE IF EXISTS `library`;
+CREATE TABLE `library` (
+  `LibraryID` int unsigned NOT NULL AUTO_INCREMENT COMMENT '图书馆ID',
+  `LibraryName` varchar(20) NOT NULL COMMENT '图书馆名',
+  `LibraryAddress` varchar(50) DEFAULT NULL COMMENT '图书馆位置',
+  `LibraryGrade` int DEFAULT NULL COMMENT '图书馆等级，共三级',
+  PRIMARY KEY (`LibraryID`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------

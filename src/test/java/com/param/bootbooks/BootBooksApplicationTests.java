@@ -1,7 +1,9 @@
 package com.param.bootbooks;
 
 import com.param.bootbooks.mapper.BookMapper;
+import com.param.bootbooks.mapper.LibraryMapper;
 import com.param.bootbooks.pojo.Book;
+import com.param.bootbooks.pojo.Library;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +24,21 @@ class BootBooksApplicationTests {
     @Autowired
     BookMapper bookMapper;
 
+    @Autowired
+    LibraryMapper libraryMapper;
+
     @Test
     void contextLoads() {
         Long aLong = jdbcTemplate.queryForObject("select count(*) from books", Long.class);
         log.info("记录条数：{}", aLong);
 
         log.info("数据源类型：{}", dataSource.getClass());
+    }
+
+    @Test
+    void testLibraryMapper(){
+        Library library = libraryMapper.selectById(1);
+        log.info(library.toString());
     }
 
 

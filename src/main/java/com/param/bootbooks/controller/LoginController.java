@@ -33,8 +33,8 @@ public class LoginController {
 
         User getUser = userService.queryUserById(user.getUserID());
 
-        // 判断账号状态
-        if(getUser.getStatus()==0){
+        // 判断账号状态,不为一即锁定
+        if(getUser.getStatus()!=1){
             model.addAttribute("errorMsg", "账号已被锁定，请联系作者！");
             return "book/login";
         }
@@ -74,10 +74,10 @@ public class LoginController {
         if(userService.queryUserById(user.getUserID())!=null){
             model.addAttribute("errorMsg", "该ID已被注册！");
             return "book/register";
+        }else{
+            userService.addUser(user);
+            return "redirect:login";
         }
-
-        userService.addUser(user);
-        return "redirect:login";
     }
 
     @ResponseBody

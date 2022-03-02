@@ -8,7 +8,6 @@ import java.util.List;
 /**
  * @author zhoujingyu（976944083@qq.com）
  */
-@Mapper
 public interface CityMapper {
 
     /**
@@ -16,7 +15,7 @@ public interface CityMapper {
      * @param id city id
      * @return city
      */
-    @Select("select * from city where id=#{id}")
+    @Select("select * from city where CityID=#{id}")
     City queryCityById(@Param("cityId") Long id);
 
     /**
@@ -24,7 +23,7 @@ public interface CityMapper {
      * @param city city
      * @return int值，0为失败，1为成功
      */
-    @Insert("insert into ssmbuild.city(name, state, country) values (#{name}, #{state}, #{country})")
+    @Insert("insert into ssmbuild.city(CityName, state, country) values (#{name}, #{state}, #{country})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int addCity(City city);
 
@@ -33,7 +32,7 @@ public interface CityMapper {
      * @param id city id
      * @return int值，0为失败，1为成功
      */
-    @Delete("delete from city where id=#{id}")
+    @Delete("delete from city where CityID=#{id}")
     int deleteCityById(@Param("cityId") Long id);
 
     /**
@@ -48,6 +47,7 @@ public interface CityMapper {
      * @param name city name
      * @return 模糊查询到的city集合
      */
+    @Select("select * from city where CityName like concat('%',#{name},'%')")
     List<City> queryCityByName(@Param("cityName") String name);
 
     /**

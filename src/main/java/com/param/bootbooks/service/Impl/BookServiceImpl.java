@@ -1,8 +1,9 @@
-package com.param.bootbooks.service;
+package com.param.bootbooks.service.Impl;
 
 
 import com.param.bootbooks.mapper.BookMapper;
 import com.param.bootbooks.pojo.Book;
+import com.param.bootbooks.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -6,6 +6,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
+ * 配置拦截器的放行路径
  * @author zhoujingyu（976944083@qq.com）
  */
 @Configuration

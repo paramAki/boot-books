@@ -1,8 +1,9 @@
-package com.param.bootbooks.service;
+package com.param.bootbooks.service.Impl;
 
 
 import com.param.bootbooks.mapper.UserMapper;
 import com.param.bootbooks.pojo.User;
+import com.param.bootbooks.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +13,7 @@ import java.util.List;
  * @author zhoujingyu（976944083@qq.com）
  */
 @Component("UserServiceImpl")
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;

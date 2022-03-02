@@ -1,7 +1,8 @@
-package com.param.bootbooks.service;
+package com.param.bootbooks.service.Impl;
 
 import com.param.bootbooks.mapper.CityMapper;
 import com.param.bootbooks.pojo.City;
+import com.param.bootbooks.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;

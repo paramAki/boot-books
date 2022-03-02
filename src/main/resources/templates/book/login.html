@@ -3,7 +3,7 @@
         <title>Login</title>
         <link rel="stylesheet" href="https://paramaki-1258623568.cos.ap-guangzhou.myqcloud.com/boot/books/css/style.css"/>
         <style>
-            /*去除input中style为number是的上下键*/
+            /*去除input中style为number时的上下键*/
             input::-webkit-outer-spin-button,
             input::-webkit-inner-spin-button {
                 -webkit-appearance: none !important;
@@ -18,7 +18,7 @@
                 <label th:text="${errorMsg}" style="color: red"></label>
                 <div class="inputBox">
                     <input type="number" name="userID" required="">
-                    <label>请输入用户ID</label>
+                    <label>请输入账号</label>
                 </div>
                 <div class="inputBox">
                     <input type="password" name="password" required="">

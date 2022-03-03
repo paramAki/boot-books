@@ -29,4 +29,6 @@ public interface BookMapper {
     List<Book> queryAllBook();
 
 //这是一堆我看不懂的代码！！！
+    //这是一条新的注释
+    //OK 编译器安装好了！！！
 }

@@ -21,6 +21,10 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
 
+        if (request.getRequestURI().contains("markdown")) {
+            return true;
+        }
+
         if (request.getRequestURI().contains("ogin")) {
             return true;
         }

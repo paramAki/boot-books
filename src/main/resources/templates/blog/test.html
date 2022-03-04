@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html>
     <body>
-    <textarea id="text-input" oninput="this.editor.update()"
-              rows="6" cols="60">Type **Markdown** here.<br/>1</textarea>
-        <div id="preview"> </div>
-        <script src="https://paramaki-1258623568.cos.ap-guangzhou.myqcloud.com/boot/blog/assets/js/markdown.js"></script>
-        <script>
-            function Editor(input, preview) {
-                this.update = function () {
-                    preview.innerHTML = markdown.toHTML(input.value);
-                };
-                input.editor = this;
-                this.update();
-            }
-            var $ = function (id) { return document.getElementById(id); };
-            new Editor($("text-input"), $("preview"));
-        </script>
+        <h1>This is <em>Sparta</em></h1>
     </body>
 </html>

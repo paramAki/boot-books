@@ -15,6 +15,7 @@
         <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
         <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
         <tomcat.version>8.5.73</tomcat.version>
+        <commonmark.version>0.18.1</commonmark.version>
     </properties>
     <dependencies>
         <dependency>
@@ -101,25 +102,16 @@
             <artifactId>mybatis-plus-generator</artifactId>
             <version>3.5.1</version>
         </dependency>
-        <!--引入Markdown转HTML的插件-->
+        <!--引入Markdown转HTML的依赖-->
         <dependency>
-            <groupId>com.atlassian.commonmark</groupId>
+            <groupId>org.commonmark</groupId>
             <artifactId>commonmark</artifactId>
-            <version>0.17.0</version>
+            <version>${commonmark.version}</version>
         </dependency>
-
-        <!--扩展 标题-->
         <dependency>
-            <groupId>com.atlassian.commonmark</groupId>
-            <artifactId>commonmark-ext-heading-anchor</artifactId>
-            <version>0.17.0</version>
-        </dependency>
-
-        <!--扩展 表格-->
-        <dependency>
-            <groupId>com.atlassian.commonmark</groupId>
+            <groupId>org.commonmark</groupId>
             <artifactId>commonmark-ext-gfm-tables</artifactId>
-            <version>0.17.0</version>
+            <version>${commonmark.version}</version>
         </dependency>
     </dependencies>
 

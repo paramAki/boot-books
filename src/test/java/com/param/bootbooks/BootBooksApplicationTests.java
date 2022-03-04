@@ -2,8 +2,8 @@ package com.param.bootbooks;
 
 import com.param.bootbooks.mapper.BookMapper;
 import com.param.bootbooks.mapper.LibraryMapper;
-import com.param.bootbooks.pojo.Book;
 import com.param.bootbooks.pojo.Library;
+import com.param.bootbooks.service.Impl.MarkdownParseService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +39,13 @@ class BootBooksApplicationTests {
     void testLibraryMapper(){
         Library library = libraryMapper.selectById(1);
         log.info(library.toString());
+    }
+
+    @Test
+    void testCommonmark(){
+        String str = "# This is *Sparta*";
+        String html = MarkdownParseService.parseHtml(str);
+        log.info("get html : {}",html);
     }
 
 

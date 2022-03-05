@@ -2,8 +2,9 @@ package com.param.bootbooks.controller;
 
 import com.param.bootbooks.mapper.BlogMapper;
 import com.param.bootbooks.pojo.Blog;
-import com.param.bootbooks.service.BlogService;
+import com.param.bootbooks.pojo.User;
 import com.param.bootbooks.utils.FileUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -15,10 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author zhoujingyu（976944083@qq.com）
  * @date 2022/2/23 9:47 AM
  */
+@Slf4j
 @Controller
 @RequestMapping("/blog")
 public class BlogController {
@@ -54,10 +58,16 @@ public class BlogController {
         return "blog/else";
     }
 
-    @RequestMapping("/toTest")
-    public String toTest(Model model) {
-        model.addAttribute("content", "hello");
-        return "blog/test";
+    @RequestMapping("/toEdit")
+    public String toEdit(Model model, HttpServletRequest request) {
+        int templateId = 0;
+        User loginUser = (User) request.getSession().getAttribute("loginUser");
+        log.info("get log in user session:{}",loginUser);
+        Blog blog = blogMapper.selectById(templateId);
+        model.addAttribute("blog", blog);
+        model.addAttribute("username",loginUser.getUsername());
+        log.info("get blog data from database");
+        return "blog/edit";
     }
 
     /**
@@ -66,7 +76,7 @@ public class BlogController {
      * @param blog
      * @return 保存结果
      */
-    @RequestMapping("/publish")
+    @RequestMapping("/save")
     @ResponseBody
     public String publishBlog(Blog blog) {
         int a = blogMapper.insert(blog);

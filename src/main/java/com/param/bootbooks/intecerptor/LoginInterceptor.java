@@ -17,12 +17,11 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        if (request.getRequestURI().contains("blog")) {
-            return true;
-        }
-
-        if (request.getRequestURI().contains("markdown")) {
-            return true;
+        /**
+         * 非登录状态下不可保存
+         */
+        if (session.getAttribute("loginUser") == null && request.getRequestURI().contains("save")){
+            return false;
         }
 
         if (request.getRequestURI().contains("ogin")) {

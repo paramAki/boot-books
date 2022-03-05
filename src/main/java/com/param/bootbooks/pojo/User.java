@@ -13,7 +13,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    private String userID;
+    private int userID;
     private int status;
     private String userEmail;
     private String username;

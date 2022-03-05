@@ -1,6 +1,5 @@
 com/param/bootbooks/mapper/BookMapper.class
 com/param/bootbooks/controller/MarkDownParseController.class
-com/param/bootbooks/service/MarkdownParseService.class
 com/param/bootbooks/BootBooksApplication.class
 com/param/bootbooks/controller/BlogController.class
 com/param/bootbooks/service/BookService.class

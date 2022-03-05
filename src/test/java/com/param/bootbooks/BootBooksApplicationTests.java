@@ -3,6 +3,8 @@ package com.param.bootbooks;
 import com.param.bootbooks.mapper.BookMapper;
 import com.param.bootbooks.mapper.LibraryMapper;
 import com.param.bootbooks.pojo.Library;
+import com.param.bootbooks.pojo.User;
+import com.param.bootbooks.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,9 @@ class BootBooksApplicationTests {
     @Autowired
     LibraryMapper libraryMapper;
 
+    @Autowired
+    UserService userService;
+
     @Test
     void contextLoads() {
         Long aLong = jdbcTemplate.queryForObject("select count(*) from books", Long.class);
@@ -44,5 +49,10 @@ class BootBooksApplicationTests {
     void testCommonmark(){
     }
 
+    @Test
+    void testQueryUserById(){
+        User user = userService.queryUserById(11);
+        log.info("get user:{}",user);
+    }
 
 }

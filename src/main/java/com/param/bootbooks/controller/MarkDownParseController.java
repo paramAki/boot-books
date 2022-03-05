@@ -1,7 +1,11 @@
 package com.param.bootbooks.controller;
 
-import com.param.bootbooks.service.MarkdownParseService;
+import com.param.bootbooks.pojo.Blog;
+import com.param.bootbooks.service.BlogService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,14 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2022/3/4 11:11 PM
  */
 @Slf4j
-@RestController
+@Controller
+@RequestMapping("/md")
 public class MarkDownParseController {
 
-    @RequestMapping("/markdown/translateToHtml")
-    public String getHtml(String str) {
-        log.info("Awaiting translate string:{}", str);
-        String html = MarkdownParseService.parseHtml(str);
-        log.info("get html : {}", html);
-        return html;
-    }
 }

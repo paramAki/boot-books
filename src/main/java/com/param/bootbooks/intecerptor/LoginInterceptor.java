@@ -33,7 +33,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        // 重定向，浏览器地址栏会变
+        // 重定向至登录页，浏览器地址栏会变
         response.sendRedirect("/user/toLogin");
         return false;
     }

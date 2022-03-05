@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="tools">
+    <CLASSES>
+      <root url="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home/lib/tools.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home/lib/tools.jar!/" />
+      <root url="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home/lib/tools.jar!/" />
+      <root url="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home/lib/tools.jar!/" />
+      <root url="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home/lib/tools.jar!/" />
+      <root url="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home/lib/tools.jar!/" />
+    </SOURCES>
+  </library>
+</component>

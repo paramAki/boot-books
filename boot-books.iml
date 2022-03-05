@@ -32,6 +32,8 @@
     <orderEntry type="library" name="font-awesome" level="application" />
     <orderEntry type="library" name="clean-blog" level="application" />
     <orderEntry type="library" name="markdown" level="application" />
+    <orderEntry type="library" name="editormd" level="application" />
+    <orderEntry type="library" name="tools" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-thymeleaf:2.3.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.3.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-logging:2.3.7.RELEASE" level="project" />
@@ -123,5 +125,6 @@
     <orderEntry type="library" name="Maven: com.baomidou:mybatis-plus-generator:3.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.commonmark:commonmark:0.18.1" level="project" />
     <orderEntry type="library" name="Maven: org.commonmark:commonmark-ext-gfm-tables:0.18.1" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.79" level="project" />
   </component>
 </module>

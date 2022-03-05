@@ -1,5 +1,6 @@
 package com.param.bootbooks.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.param.bootbooks.mapper.BlogMapper;
 import com.param.bootbooks.pojo.Blog;
 import com.param.bootbooks.pojo.User;
@@ -77,13 +78,17 @@ public class BlogController {
      * @return 保存结果
      */
     @RequestMapping("/save")
-    @ResponseBody
     public String publishBlog(Blog blog) {
+        QueryWrapper<Blog> queryWrapper=new QueryWrapper();
+        Long count = blogMapper.selectCount(queryWrapper);
+        blog.setId(count);
         int a = blogMapper.insert(blog);
         if (a == 1) {
-            return "success";
+            log.info("新建成功，访问地址为http://175.178.96.30:9090/blog/show/"+blog.getId());
+            return "redirect:show/"+blog.getId();
         }
-        return "false";
+        log.error("新建blog失败");
+        return "/error";
     }
 
     /**

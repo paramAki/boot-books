@@ -19,13 +19,13 @@
 
         <div class="col-md-12 column" style="vertical-align:middle">
             <form th:action="@{/blog/save}" name="mdEditorForm" role="form" method="post">
-                <input type="hidden" th:value="${username}">
+                <input name="author" type="hidden" th:value="${username}">
                 <div class="input-group" style="height: 45px; position: relative;">
                     <span class="input-group-addon text" th:text="${username}"></span>
-                    <input type="text" style="height: 45px" class="form-control" placeholder="请输入标题" required>
+                    <input name="title" type="text" style="height: 45px" class="form-control" placeholder="请输入标题" required>
                     <input type="submit" value="发 布" class="btn btn-primary">
                 </div>
-                <div id="test-editormd" class="required field">
+                <div name="content" id="test-editormd" class="required field">
                     <!--引入markdown-->
                     <div id="md-content" style=" z-index: 1 !important;">
                         <textarea placeholder="博客内容" name="content" id="content" style="display:none;"

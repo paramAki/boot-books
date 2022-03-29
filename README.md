@@ -1,5 +1,5 @@
 # boot-books
-## 基于spring-boot的书城管理系统demo<br/><br/>
+## 基于spring-boot的博客demo<br/><br/>
 
 java version:"1.8.0_311"<br/>
 MySQL version:8.0.22<br/>
